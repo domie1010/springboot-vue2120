@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.dao.MycouponDao">
+
+	<!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="com.entity.MycouponEntity" id="mycouponMap">
+        <result property="userid" column="userid"/>
+        <result property="couponid" column="couponid"/>
+        <result property="name" column="name"/>
+        <result property="couponnumber" column="couponnumber"/>
+        <result property="fullamount" column="fullamount"/>
+        <result property="discountamount" column="discountamount"/>
+        <result property="startime" column="startime"/>
+        <result property="endtime" column="endtime"/>
+        <result property="type" column="type"/>
+        <result property="remark" column="remark"/>
+        <result property="status" column="status"/>
+    </resultMap>
+
+	<select id="selectListVO"
+		resultType="com.entity.vo.MycouponVO" >
+		SELECT * FROM mycoupon  mycoupon         
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectVO"
+		resultType="com.entity.vo.MycouponVO" >
+		SELECT  mycoupon.* FROM mycoupon  mycoupon 	
+ 		<where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+
+    <select id="selectListView"
+		resultType="com.entity.view.MycouponView" >
+
+		SELECT  mycoupon.* FROM mycoupon  mycoupon 	        
+        <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+	<select id="selectView"
+		resultType="com.entity.view.MycouponView" >
+		SELECT * FROM mycoupon  mycoupon <where> 1=1 ${ew.sqlSegment}</where>
+	</select>
+	
+
+
+</mapper>
